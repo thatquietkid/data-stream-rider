@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- NEW: Load the pixel font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Data-Stream Rider</title>
+  </head>
+  <body>
+    
+    <!-- This overlay provides the CRT scanline effect -->
+    <div class="scanline-overlay"></div>
+
+    <!-- --- Start Screen --- -->
+    <div id="start-screen" class="overlay">
+      <div class="content">
+        <h1>DATA-STREAM RIDER</h1>
+        <p>A 3D Interactive Resume</p>
+        <p id="loading-text">Loading Assets...</p>
+        <button id="start-button">Start Game</button>
+        <!-- REMOVED: Debug button -->
+        <div class="instructions">
+          [W, A, S, D] or [Arrows] to Move
+          <br>
+          [Esc] to Pause
+        </div>
+      </div>
+    </div>
+
+    <!-- --- Pause Menu --- -->
+    <div id="pause-menu" class="overlay hidden">
+      <div class="content">
+        <h1>PAUSED</h1>
+        <button id="resume-button">Resume Game</button>
+        <button id="exit-button">Exit</button>
+      </div>
+    </div>
+
+    <!-- --- Resume Modal --- -->
+    <div id="resume-modal" class="overlay hidden">
+      <div class="modal-content">
+        <h2 id="modal-title">Resume Section</h2>
+        <div id="modal-body">
+          <!-- Content is injected by main.js -->
+        </div>
+        <button id="modal-close-button">Continue Ride</button>
+      </div>
+    </div>
+
+    <!-- --- End Screen (Credits) --- -->
+    <div id="end-screen" class="overlay hidden">
+      <div class="credits-container">
+        <div class="credits-content">
+          <!-- Content is your resume, formatted for scrolling -->
+          <h2>FINAL SCORE</h2>
+          <h2 id="final-score">0</h2>
+          
+          <br>
+          
+          <h2>NITIN CHAUHAN</h2>
+          
+          <h3>PROFILE</h3>
+          <p>
+            Fullstack Developer with a strong focus on DevOps, specializing in building and deploying scalable, containerized microservice applications using Go and Angular. Proficient in cloud-native technologies including GCP, Docker, and Kubernetes for orchestrating services. Experienced in designing CI/CD pipelines, implementing monitoring systems with Prometheus, and developing robust RESTful APIs.
+          </p>
+          
+          <h3>SKILLS</h3>
+          <p>
+            LANGUAGES: GoLang, Python, JavaScript, SQL, Bash, Angular
+            <br><br>
+            CLOUD & DEVOPS: GCP, Kubernetes, Docker, Prometheus, Nginx, CI/CD (GitHub Actions, Jenkins), Linux, AWS
+            <br><br>
+            FRAMEWORKS & DATABASES: Echo, Gin, FastAPI, Flask, Django, PostgreSQL, MongoDB
+          </p>
+          
+          <h3>EXPERIENCE</h3>
+          <p>
+            RESEARCH INTERN - SAMARTHX EGOV PROJECT
+            <br>
+            <em>(Mar 2025 - Present)</em>
+            <br><br>
+            - Built a scalable microservice ecosystem with a Go (Echo) backend and Angular frontend for an eGov framework.
+            <br>
+            - Dockerized the application and orchestrated deployment on Google Cloud Platform (GCP) using Google Kubernetes Engine (GKE).
+            <br>
+            - Configured Nginx as a reverse proxy and ingress controller.
+            <br>
+            - Transitioned the system from local development to a deployed platform serving over 1000+ users.
+          </p>
+          
+          <h3>PROJECTS</h3>
+          <p>
+            LOWKEY CHAT APP
+            <br>
+            <em>(github.com/thatquietkid/websockets-project-golang)</em>
+            <br><br>
+            - Engineered a Go backend using Gorilla WebSocket for persistent, bidirectional client-server communication.
+            <br>
+            - Dockerized the application and deployed it on a local Linux server.
+            <br>
+            - Integrated Prometheus to scrape custom application metrics for performance monitoring.
+          </p>
+          <p>
+            SOUTH CAMPUS BUDDY
+            <br>
+            <em>(github.com/thatquietkid/south_campus_app)</em>
+            <br><br>
+            - Built a RESTful backend in Go (Echo) with a PostgreSQL database to support complaint tracking and attendance logs.
+            <br>
+            - Developed the cross-platform mobile frontend using Flutter (Dart).
+          </p>
+          
+          <h3>EDUCATION</h3>
+          <p>
+            M.Sc. Informatics
+            <br>
+            Institute of Informatics and Communication, University of Delhi
+            <br>
+            <em>(Expected: 2026)</em>
+          </p>
+          
+          <h3>CERTIFICATIONS</h3>
+          <p>
+            Google Cybersecurity (2024)
+            <br>
+            IBM DevOps (2024)
+            <br>
+            Postman Student Expert (2024)
+          </p>
+
+          <br><br>
+          <h2>THANKS FOR PLAYING!</h2>
+        </div>
+      </div>
+      <!-- UPDATED: Button ID and Text -->
+      <button id="main-menu-button">Return to Main Menu</button>
+    </div>
+
+    <!-- --- Game UI (Score + Progress) --- -->
+    <div id="score-display">SCORE: 0</div>
+    <div id="progress-bar-container">
+      <div id="progress-bar-fill"></div>
+      <!-- Markers are injected by main.js -->
+    </div>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

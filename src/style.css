@@ -1,0 +1,311 @@
+/* --- Retro Theme & Base --- */
+body {
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Press Start 2P', system-ui, sans-serif;
+  overflow: hidden; /* Prevents scrollbars */
+}
+
+/* --- Scanline Effect --- */
+.scanline-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* --- Score Display --- */
+#score-display {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1em;
+  color: #FF00FF;
+  text-shadow: 0 0 10px #FF00FF, 0 0 15px #FF00FF;
+  z-index: 10;
+  display: none; /* Hidden by default */
+}
+
+
+/* --- Progress Bar --- */
+#progress-bar-container {
+  position: fixed;
+  top: 20px;
+  left: 50%; /* UPDATED: from right: 20px */
+  transform: translateX(-50%); /* NEW: Added to center */
+  width: 30%;
+  height: 10px;
+  background-color: #333;
+  border: 2px solid #FF00FF;
+  box-shadow: 0 0 10px #FF00FF, 0 0 15px #FF00FF;
+  z-index: 10;
+  display: none; /* Hidden by default */
+}
+
+#progress-bar-fill {
+  width: 0%; 
+  height: 100%;
+  background-color: #FF00FF;
+  box-shadow: 0 0 10px #FF00FF, 0 0 15px #FF00FF;
+  transition: width 0.1s linear; 
+}
+
+.gate-marker {
+  position: absolute;
+  top: -6px; /* Position above the bar */
+  width: 4px;
+  height: 22px;
+  background-color: #00ff00; /* Green for levels */
+  box-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00;
+  transform: translateX(-50%);
+}
+
+/* --- Overlay & Modal Styles --- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column; /* To stack content and button */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 100;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- Start Screen & Pause Menu Content --- */
+#start-screen .content,
+#pause-menu .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px; 
+}
+
+#start-screen h1,
+#pause-menu h1 {
+  font-size: 2.5em; 
+  color: #FF00FF; 
+  text-shadow: 0 0 15px #FF00FF, 0 0 25px #FF00FF;
+  margin: 0;
+  line-height: 1.4;
+}
+
+#start-screen p {
+  font-size: 1em;
+  margin: 0;
+  color: #eee;
+}
+
+#start-screen .instructions {
+  font-size: 0.8em;
+  margin-top: 15px;
+  color: #aaa;
+  line-height: 1.8;
+}
+
+#start-screen #loading-text {
+  font-size: 1em;
+  color: #FF00FF;
+  text-shadow: 0 0 10px #FF00FF;
+}
+
+#start-screen.loading #start-button,
+#start-screen.loading .instructions { 
+  display: none;
+}
+
+#start-screen:not(.loading) #loading-text {
+  display: none;
+}
+
+/* --- Button Styles --- */
+button {
+  font-family: 'Press Start 2P', system-ui, sans-serif; 
+  font-size: 1em;
+  padding: 15px 30px;
+  background-color: #FF00FF;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  text-shadow: 0 0 5px #fff;
+  box-shadow: 0 0 15px #FF00FF, 0 0 10px #FF00FF inset;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #FF00FF;
+  box-shadow: 0 0 20px #fff, 0 0 15px #fff inset;
+}
+
+#exit-button {
+  background-color: #ff0000; 
+  box-shadow: 0 0 15px #ff0000, 0 0 10px #ff0000 inset;
+}
+
+#exit-button:hover {
+  background-color: #fff;
+  color: #ff0000;
+  box-shadow: 0 0 20px #fff, 0 0 15px #fff inset;
+}
+
+/* --- Resume Modal Content --- */
+.modal-content {
+  background-color: #111;
+  border: 3px solid #FF00FF;
+  padding: 30px 40px;
+  width: 80%;
+  max-width: 700px;
+  box-shadow: 0 0 20px #FF00FF, 0 0 30px #FF00FF;
+  text-align: left;
+}
+
+.modal-content h2 {
+  font-size: 1.5em; 
+  color: #FF00FF;
+  text-shadow: 0 0 10px #FF00FF;
+  text-align: center;
+}
+
+.modal-content #modal-body {
+  font-size: 0.9em; 
+  line-height: 1.8;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.modal-content #modal-body h3 {
+  color: #fff;
+  border-bottom: 1px solid #FF00FF;
+  padding-bottom: 5px;
+}
+
+.modal-content #modal-body ul {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+.modal-content #modal-body li::before {
+  content: '> '; 
+  color: #FF00FF;
+  text-shadow: 0 0 5px #FF00FF;
+}
+
+.modal-content button {
+  display: block;
+  margin: 20px auto 0;
+}
+
+/* --- End Screen Credits (Star Wars Style) --- */
+#end-screen {
+  background-color: #000; /* Solid black background */
+  justify-content: flex-end; /* Push button to bottom */
+  padding-bottom: 30px;
+  /* Add 3D perspective */
+  perspective: 300px; /* Reduced perspective for less distortion */
+}
+
+.credits-container {
+  width: 100%;
+  max-width: 800px; /* Wider for resume text */
+  height: 80vh; /* 80% of the screen height */
+  overflow: hidden; /* This hides the non-scrolling text */
+  position: relative;
+}
+
+.credits-content {
+  position: absolute;
+  top: 100%; /* Start off-screen at the bottom */
+  width: 100%;
+  text-align: center;
+  /* NEW: Apply 3D transform and animation */
+  transform-origin: 50% 0; /* FIXED: Pivot from the TOP-center */
+  animation: star-wars-crawl 60s linear forwards; 
+}
+
+.credits-content h2 {
+  font-size: 1.5em;
+  color: #FF00FF;
+  text-shadow: 0 0 10px #FF00FF, 0 0 15px #FF00FF;
+  margin: 20px 0;
+}
+.credits-content h3 {
+  font-size: 1.2em;
+  color: #00ff00; /* Green headers */
+  text-shadow: 0 0 10px #00ff00;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #00ff00;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.credits-content p {
+  font-size: 0.9em;
+  line-height: 1.8;
+  color: #ccc;
+  margin: 15px 0;
+}
+.credits-content ul {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 0.9em;
+  line-height: 1.8;
+  color: #aaa;
+  text-align: left;
+  max-width: 90%;
+  margin: 15px auto;
+}
+.credits-content li {
+  padding-left: 10px;
+  text-indent: -10px;
+}
+.credits-content li::before {
+  content: '- ';
+}
+
+/* UPDATED: Renamed button ID */
+#main-menu-button {
+  margin-top: 20px;
+  z-index: 110; /* Make sure it's on top */
+}
+
+/* FIXED: Star Wars crawl animation */
+@keyframes star-wars-crawl {
+  from {
+    top: 100%; /* Start at the bottom of the container */
+    transform: rotateX(25deg); /* Angle text away, 25deg is less extreme */
+  }
+  to {
+    top: -300%; /* Scroll a much larger distance */
+    transform: rotateX(25deg);
+  }
+}
