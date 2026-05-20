@@ -230,31 +230,58 @@ const resumeContent = {
   experience: {
     title: "EXPERIENCE",
     body: `
-      <h3>Research Intern – SamarthX eGov Project</h3>
-      <p><em>Mar 2025 – Present</em></p>
+      <h3>Backend & Testing Intern – Spartified</h3>
+      <p><em>Oct 2025 – Apr 2026</em></p>
       <ul>
-        <li>Built a scalable microservice ecosystem with a Go (Echo) backend and Angular frontend for an eGov framework.</li>
-        <li>Dockerized the application and orchestrated deployment on Google Cloud Platform (GCP) using Google Kubernetes Engine (GKE).</li>
-        <li>Configured Nginx as a reverse proxy and ingress controller.</li>
-        <li>Transitioned the system from local development to a deployed platform serving over 1000+ users.</li>
+        <li>Engineered a CRM-to-billing synchronization microservice using MD5-based delta detection, eliminating data drift and reducing database I/O by ~30%.</li>
+        <li>Refactored batch pipelines and eliminated N+1 query patterns, cutting query execution time by 40% under load.</li>
+        <li>Integrated an async AuditLogger with end-to-end UUID tracing across 4 microservices, reducing MTTR by ~50%.</li>
+        <li>Designed Cypress.js and JUnit 5 test suites covering API sanity, regression, and contract validation.</li>
+      </ul>
+
+      <h3>Research Intern – SamarthX eGov Project, Ministry of Education</h3>
+      <p><em>Mar 2025 – Aug 2025</em></p>
+      <ul>
+        <li>Built and deployed a highly scalable, multi-tenant eGovernance platform serving 1,000+ users with a GoLang backend and Angular frontend.</li>
+        <li>Implemented enterprise-grade security features including Role-Based Access Control (RBAC) and OTP-based authentication for strict data isolation.</li>
+        <li>Optimized system performance by introducing frontend caching, resulting in a 30% reduction in application load times.</li>
+        <li>Orchestrated end-to-end deployment using Docker and Google Kubernetes Engine (GKE) with Nginx as a reverse proxy.</li>
       </ul>
     `
   },
   projects: {
     title: "PROJECTS",
     body: `
-      <h3>Lowkey Chat App</h3>
-      <p><em>(github.com/thatquietkid/websockets-project-golang)</em></p>
+      <h3>DSA Lens - Algorithm Visualizer</h3>
+      <p><em>React, WebAssembly (Pyodide), Python, Custom AST Instrumentation</em></p>
+      <p>
+        <a href="https://github.com/thatquietkid/dsa-lens" target="_blank">GitHub</a> | 
+        <a href="https://dsa-lens.onrender.com/" target="_blank">Live Demo</a>
+      </p>
       <ul>
-        <li>Engineered a Go backend using Gorilla WebSocket for persistent, bidirectional client-server communication.</li>
-        <li>Dockerized the application and deployed it on a local Linux server.</li>
-        <li>Integrated Prometheus to scrape custom application metrics for performance monitoring.</li>
+        <li>Built an in-browser algorithm visualizer utilizing Pyodide to execute Python code locally on the client, eliminating backend server latency.</li>
+        <li>Created a custom Abstract Syntax Tree (AST) instrumenter to intercept script execution and dynamically visualize stack and heap memory states frame-by-frame.</li>
+        <li>Implemented a singleton module pattern for the WebAssembly engine, resolving React state crashes and ensuring stable performance during rapid code re-execution.</li>
       </ul>
-      <h3>South Campus Buddy</h3>
-      <p><em>(github.com/thatquietkid/south_campus_app)</em></p>
+
+      <h3>Data-Stream Rider - 3D Web Application</h3>
+      <p><em>Three.js, Vite, Docker, Nginx, Vector Mathematics</em></p>
+      <p>
+        <a href="https://github.com/thatquietkid/data-stream-rider" target="_blank">GitHub</a>
+      </p>
       <ul>
-        <li>Built a RESTful backend in Go (Echo) with a PostgreSQL database to support complaint tracking and attendance logs.</li>
-        <li>Developed the cross-platform mobile frontend using Flutter (Dart).</li>
+        <li>Implemented fluid camera navigation mapping 2D inputs to 3D space utilizing Frenet-Serret frames and vector cross-products.</li>
+        <li>Optimized rendering performance using UnrealBloom post-processing and efficient asset loading configurations.</li>
+        <li>Containerized the application using Docker and configured a custom Nginx web server, optimizing the deployment pipeline for high-performance static asset serving.</li>
+      </ul>
+
+      <h3>Styleforge — Fashion-Tech AI Integration</h3>
+      <p><em>Generative AI, Flux, Stable Diffusion, ComfyUI, Python</em></p>
+      <p><strong>Status: Work in Progress</strong></p>
+      <ul>
+        <li><strong>AI-Driven Design:</strong> Developed specialized workflows for automated fashion ideation and high-fidelity garment generation using cutting-edge models like Flux and Stable Diffusion.</li>
+        <li><strong>Advanced Image Manipulation:</strong> Implemented sophisticated inpainting and outpainting techniques to allow for granular control over textile textures and garment silhouettes.</li>
+        <li><strong>Pipeline Optimization:</strong> Leveraged ComfyUI to build modular, node-based generative pipelines that streamline the transition from initial creative concepts to production-ready design assets.</li>
       </ul>
     `
   }
